@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wonderlust</title>
+</head>
+<body>
+    <h2><%= item.title%></h2>
+    <ul>
+        <li>&#x20b9;<%= item.price.toLocaleString("en-IN")%></li>
+        <li><%= item.description%></li>
+        <li><%= item.location%></li>
+        <li><%= item.country%></li>
+    </ul>
+    <a href="/listing/<%=item.id%>/edit">edit </a>
+    <form method="POST" action="/listing/<%=item.id%>?_method=DELETE">
+        <button>Delete this Data</button>
+    </form>
+</body>
+</html>

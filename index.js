@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const path = require("path");
 const Listing = require("./models/listing.js"); 
 const app = express();
-
+const methodOverride = require('method-override');
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -21,19 +23,52 @@ app.get("/", (req, res) => {
     res.send("Welcome to Home Page");
 });
 
-app.get("/testlisting", async (req, res) => {
-    let sampleListing = new Listing({
-        title: "My New Villa",
-        description: "By the beach",
-        image: "https://pixabay.com/videos/pagoda-mountains-japan-japanese-240841/",
-        price: 12000,
-        location: "Bhavnagar",
-        country: "India",
-    });
 
-    await sampleListing.save();
-    console.log("Sample listing was saved");
-    res.send("Listing added successfully!");
+//index route
+app.get("/listing",async(req,res)=>{
+    const AllListing=await Listing.find({}); 
+    console.log(AllListing);
+    res.render("listings/index.ejs",{AllListing});
+});
+
+//new route
+app.get("/listing/new",(req,res)=>{
+    res.render("listings/new.ejs");
+});
+
+//show route
+app.get("/listing/:id",async(req,res)=>{
+    let {id}=req.params;
+    const item=await Listing.findById(id);
+    res.render("listings/show.ejs",{item});
+});
+//create route
+app.post("/listing",async(req,res)=>{
+    // let {title,price,location,country,image}=req.body;
+    const newlisting=new Listing(req.body.listing);
+    await newlisting.save();
+    res.redirect("/listing");
+});
+
+app.get("/listing/:id/edit",async(req,res)=>{
+    let {id}=req.params;
+    const item=await Listing.findById(id);
+    res.render("listings/edit.ejs",{item});
+});
+
+//update route
+app.put("/listing/:id",async(req,res)=>{
+    let {id}=req.params;
+    const item=await Listing.findByIdAndUpdate(id,{...req.body.listing});
+    res.redirect("/listing");
+
+});
+
+//delete route
+app.delete("/listing/:id",async(req,res)=>{
+    let {id}=req.params;
+    const deleteitem=await Listing.findByIdAndDelete(id);
+    res.redirect("/listing");
 });
 
 app.listen(port, () => {
