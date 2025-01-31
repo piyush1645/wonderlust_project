@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<% layout("/layouts/boilarplate")%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wonderlust</title>
-</head>
-
-<body>
-    <h2>All listing </h2>
-    <form method="GET" action="/listing/new">
-        <button>Add a new place</button>
-    </form>
-    <ul>
-        <% for (let list of AllListing){ %>
-            <li><a href="listing/<%=list.id%>">
-                    <%=list.title%>
-                </a></li>
-            <% } %>
-    </ul>
-</body>
-
-</html>
+    <body>
+        <h2>All listing </h2>
+        <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1">
+            <% for (let list of AllListing){ %>
+                <a href="listing/<%=list.id%>"class="listing-link">
+                <div class="card" style="width: 18rem;" >
+                    <img src="<%=list.image%>" class="card-img-top" alt="th.jpg">
+                    <div class="card-img-overlay">$</div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%=list.title%>
+                        </h5>
+                        <h6 class="card-price">&#x20b9;<%=list.price.toLocaleString("en-IN")%>/Night</h6>
+                    </div>
+                </div>
+            </a>
+                <% } %>
+        </div>
+    </body>

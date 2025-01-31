@@ -1,21 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wonderlust</title>
-</head>
-<body>
-    <h2><%= item.title%></h2>
-    <ul>
-        <li>&#x20b9;<%= item.price.toLocaleString("en-IN")%></li>
-        <li><%= item.description%></li>
-        <li><%= item.location%></li>
-        <li><%= item.country%></li>
-    </ul>
-    <a href="/listing/<%=item.id%>/edit">edit </a>
-    <form method="POST" action="/listing/<%=item.id%>?_method=DELETE">
-        <button>Delete this Data</button>
-    </form>
-</body>
-</html>
+<% layout("/layouts/boilarplate")%>
+
+    <body>
+        <div class="body-container">
+            <div class="col-10 offset-2">
+            <div class="card">
+                <br>
+                <div class="col-6 offset-2">
+                <h3>Listing Details</h3>
+                <img src="<%=item.image%>" class="card-img-top" alt="https://tse4.mm.bing.net/th?id=OIP.jcJPNuQrwXmbKUiWpC9-NwHaHa&pid=Api&P=0&h=220">
+                <h2>
+                    <%= item.title%>
+                </h2>
+                <div class="card-body">
+                    <ul>
+                        <li>&#x20b9;<%= item.price.toLocaleString("en-IN")%>
+                        </li>
+                        <li>
+                            <%= item.description%>
+                        </li>
+                        <li>
+                            <%= item.location%>
+                        </li>
+                        <li>
+                            <%= item.country%>
+                        </li>
+                    </ul>
+            </div>
+                
+                </div>
+            </div>
+
+<div class="btns mb-3 col-6 offset-2">
+            <a href="/listing/<%=item.id%>/edit" class="btn add-btn">edit </a>
+            <form method="POST" action="/listing/<%=item.id%>?_method=DELETE">
+                <button class="btn add-btn">Delete this Data</button>
+            </form>
+        </div>
+        </div>
+    </body>
+</div>

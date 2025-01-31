@@ -1,26 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wonderlust</title>
-</head>
+<% layout("/layouts/boilarplate")%>
+
 <body>
-    <h2>Edit details</h2>
+    
     <form method="POST" action="/listing/<%=item.id%>?_method=PUT">
-        <input type="text" name="listing[title]" value="<%=item.title%>">
+        <div class="row">
+            <div class="col-md-8 offset-2" >
+                <h2>Edit details</h2>
+        <div class="mb-3">
+            <label for="listing[title]" class="form-lable">Title</label>
+        <input type="text" class="form-control" name="listing[title]" value="<%=item.title%>">
+    </div>
+        <div class="mb-3">
+            <label for="listing[image]" class="form-lable">Image Link/URL</label>
+        <input type="text" class="form-control"name="listing[image]" value="<%=item.image%>">
+    </div>
+        <div class="mb-3">
+            <label for="listing[Description]" class="form-lable">Description</label>
+        <textarea  name="listing[description]"class="form-control" cols="20" rows="5"><%=item.description%></textarea>
+    </div>
+    <div class="row">
+    <div class="mb-3 col-md-4">
+        <label for="listing[price]" class="form-lable">Price</label>
+        <input type="number"class="form-control" name="listing[price]" value="<%=item.price%>">
+    </div>
+        <div class="mb-3 col-md-8">
+            <label for="listing[country]" class="form-lable">Country</label>
+        <input type="text" name="listing[country]"class="form-control" value="<%=item.country%>">
+    </div>
+</div>
+        <div class="mb-3">
+            <label for="listing[location]" class="form-lable">Location</label>
+        <input type="text" name="listing[location]"class="form-control" value="<%=item.location%>">
+        </div>
+        <button class="btn add-btn">Update</button>
         <br><br>
-        <input type="number" name="listing[price]" value="<%=item.price%>">
-        <br><br>
-        <input type="text" name="listing[image]" value="<%=item.image%>">
-        <br><br>
-        <textarea  name="listing[description]" cols="20" rows="10"><%=item.description%></textarea>
-        <br><br>
-        <input type="text" name="listing[country]" value="<%=item.country%>">
-        <br><br>
-        <input type="text" name="listing[location]" value="<%=item.location%>">
-        <br><br>
-        <button>Update</button>
+    </div>
+    </div>
     </form>
 </body>
-</html>

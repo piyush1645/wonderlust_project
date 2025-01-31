@@ -8,7 +8,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
-
+const ejsMate=require("ejs-mate");
+app.engine("ejs", ejsMate);
 async function main() {
     await mongoose.connect("mongodb://127.0.0.1:27017/wonderlust");
     console.log("Connected to MongoDB");
