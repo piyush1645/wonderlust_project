@@ -1,40 +1,63 @@
 <% layout("/layouts/boilarplate")%>
 
-<body>
-    
-    <form method="POST" action="/listing">
-     
+    <body>
+
+        <form method="POST" action="/listing" class="needs-validation" novalidate>
+
             <div class="col-8 offset-2">
                 <br>
                 <h2>Create New Listing</h2>
-            <div class="mb-3">
-                <label for="list-title" class="form-label">Title</label>
-                <input type="text" name="listing[title]"class="form-control" placeholder="enter title">
+                <div class="mb-3">
+                    <label for="list-title" class="form-label">Title</label>
+                    <input type="text" name="listing[title]" class="form-control" class="needs-validation"
+                        placeholder="enter title" required>
+                        <div class="invalid-feedback">
+                            Titl is required.
+                          </div>
+                </div>
+                <div class="mb-3">
+                    <label for="list-discription" class="form-label">Description</label>
+                    <input type="textarea" class="form-control" class="needs-validation" name="listing[description]"
+                        placeholder="enter description" required>
+                        <div class="invalid-feedback">
+                            Description is required.
+                          </div>
+                </div>
+                <div class="mb-3">
+                    <label for="list-image" class="form-label ">Image Link</label>
+                    <input type="text" class="form-control" name="listing[image]" placeholder="enter image link/url">
+                    <div class="invalid-feedback">
+                        Image is required.
+                      </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="list-price" class="form-label ">Price</label>
+                        <input type="number" class="form-control needs-validation" name="listing[price]"
+                            placeholder="enter price" required>
+                            <div class="invalid-feedback">
+                                Price is required.
+                              </div>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="list-country" class="form-label">Country</label>
+                        <input type="text" class="form-control needs-validation" name="listing[country]"
+                            placeholder="enter country" required>
+                            <div class="invalid-feedback">
+                                Country name is required.
+                              </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="list-location" class="form-label">Location</label>
+                    <input type="text" class="form-control needs-validation" name="listing[location]"
+                        placeholder="enter location" required>
+                        <div class="invalid-feedback">
+                            Location is required.
+                          </div>
+                </div>
+                <button class="btn  mb-3 add-btn">Add</button>
             </div>
-        <div class="mb-3">
-            <label for="list-discription" class="form-label">Description</label>
-            <input type="textarea"class="form-control" name="listing[description]" placeholder="enter description">
-        </div>
-        <div class="mb-3">
-            <label for="list-image" class="form-label">Image Link</label>
-            <input type="text"class="form-control" name="listing[image]" placeholder="enter image link/url">
-        </div>
-        <div class="row">
-        <div class="mb-3 col-md-4" >
-            <label for="list-price"  class="form-label">Price</label>
-            <input type="number"class="form-control" name="listing[price]" placeholder="enter price">
-        </div>
-       <div class="mb-3 col-md-8">
-        <label for="list-country" class="form-label">Country</label>
-        <input type="text"class="form-control" name="listing[country]" placeholder="enter country">
-       </div>
-    </div>
-       <div class="mb-3">
-        <label for="list-location" class="form-label">Location</label>
-        <input type="text" class="form-control"name="listing[location]" placeholder="enter location">
-       </div>
-        <button class="btn  mb-3 add-btn">Add</button>
-    </div>
-    
-    </form>
-</body>
+
+        </form>
+    </body>

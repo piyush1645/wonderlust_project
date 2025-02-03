@@ -6,7 +6,7 @@
             <% for (let list of AllListing){ %>
                 <a href="listing/<%=list.id%>"class="listing-link">
                 <div class="card" style="width: 18rem;" >
-                    <img src="<%=list.image%>" class="card-img-top" alt="th.jpg">
+                    <img src="<%=list.image%>" class="card-img-top" onerror="this.onerror=null; this.src='https://tse1.mm.bing.net/th?id=OIP.I2tP7f3fn1jxlUePw3vSdAAAAA&pid=Api&P=0&h=220';" alt="Image">
                     <div class="card-img-overlay">$</div>
                     <div class="card-body">
                         <h5 class="card-title">
