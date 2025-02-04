@@ -3,40 +3,56 @@
     <body>
         <div class="body-container">
             <div class="col-10 offset-2">
-            <div class="card">
-                <br>
-                <div class="col-6 offset-2">
-                <h3>Listing Details</h3>
-                <img src="<%=item.image%>"class="card-img-top" onerror="this.onerror=null; this.src='https://tse1.mm.bing.net/th?id=OIP.I2tP7f3fn1jxlUePw3vSdAAAAA&pid=Api&P=0&h=220';" alt="Image">
+                <div class="card">
+                    <br>
+                    <div class="col-6 offset-2">
+                        <h3>
+                            <%= item.title%>
+                        </h3>
+                        <img src="<%=item.image%>" class="card-img-top"
+                            onerror="this.onerror=null; this.src='https://tse1.mm.bing.net/th?id=OIP.I2tP7f3fn1jxlUePw3vSdAAAAA&pid=Api&P=0&h=220';"
+                            alt="Image">
+                        <div class="card-body">
+                            <ul>
+                                <li>&#x20b9;<%= item.price.toLocaleString("en-IN")%>
+                                </li>
+                                <li>
+                                    <%= item.description%>
+                                </li>
+                                <li>
+                                    <%= item.location%>
+                                </li>
+                                <li>
+                                    <%= item.country%>
+                                </li>
+                            </ul>
+                        </div>
 
-                <h2>
-                    <%= item.title%>
-                </h2>
-                <div class="card-body">
-                    <ul>
-                        <li>&#x20b9;<%= item.price.toLocaleString("en-IN")%>
-                        </li>
-                        <li>
-                            <%= item.description%>
-                        </li>
-                        <li>
-                            <%= item.location%>
-                        </li>
-                        <li>
-                            <%= item.country%>
-                        </li>
-                    </ul>
-            </div>
-                
+                    </div>
+                </div>
+
+                <div class="btns mb-3 col-6 offset-2">
+                    <a href="/listing/<%=item.id%>/edit" class="btn add-btn">edit </a>
+                    <form method="POST" action="/listing/<%=item.id%>?_method=DELETE">
+                        <button class="btn add-btn">Delete this Data</button>
+                    </form>
+                </div>
+                <div class="col-8 offset-3">
+                    <hr>
+                    <h4>Leave a Review</h4>
+                    <form action="" class="mb-3 mt-3">
+                        <div>
+                            <label class="form-lable" for="rating">Rating</label>
+                            <input type="range" class="form-range" min="1" max="5" id="rating" name="review[rating]">
+                        </div>
+                        <div>
+                            <label class="form-lable" for="comment">Comments</label>
+                            <textarea name="review[comment]" class="form-control" id="comment" cols="30" rows="5"></textarea>
+                        </div>
+                        <button class="btn btn-outliner-dark">Submit</button>
+                    </form>
+
                 </div>
             </div>
-
-<div class="btns mb-3 col-6 offset-2">
-            <a href="/listing/<%=item.id%>/edit" class="btn add-btn">edit </a>
-            <form method="POST" action="/listing/<%=item.id%>?_method=DELETE">
-                <button class="btn add-btn">Delete this Data</button>
-            </form>
-        </div>
-        </div>
     </body>
-</div>
+    </div>
