@@ -2,10 +2,10 @@
 
     <body>
         <div class="body-container">
-            <div class="col-10 offset-2">
+            <div class="col-10 offset-1">
                 <div class="card">
                     <br>
-                    <div class="col-6 offset-2">
+                    <div class="col-10 offset-1">
                         <h3>
                             <%= item.title%>
                         </h3>
@@ -31,15 +31,16 @@
                     </div>
                 </div>
 
-                <div class="btns mb-3 col-6 offset-2">
+                <div class="btns mb-3 mt-3 col-10 offset-1">
                     <a href="/listing/<%=item.id%>/edit" class="btn add-btn">edit </a>
                     <form method="POST" action="/listing/<%=item.id%>?_method=DELETE">
                         <button class="btn add-btn">Delete this Data</button>
                     </form>
                 </div>
-                <div class="mb-3 col-6 offset-2">
-                    <hr>
+                <div class="mb-3 col-10 offset-1">
                     <h4>Leave a Review</h4>
+                    <hr>
+
                     <form action="/listing/<%=item.id%>/reviews" method="POST"  class="col-8 mb-3 mt-3 offset-2 needs-validation" novalidate>
                         <div>
                             <label class="form-label" for="rating">Rating</label>
@@ -54,6 +55,21 @@
                         </div>
                         <button class="btn btn-outline-dark mt-3">Submit</button>
                     </form>
+                    <hr>
+
+                    <h4>All Review</h4>
+                <div class="row col-10 offset-1">
+                    <%for(review of item.reviews){%>
+                        <div class="card mb-3 ms-5" style="width: 18rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">username</h5>
+                                <p class="card-text">  <%=review.comment%></p>
+                                <p class="card-text"> <b><%=review.rating%> star!</b></p>
+
+                            </div>
+                          </div>
+                    <%}%>
+                    </div>
 
                 </div>
             </div>
