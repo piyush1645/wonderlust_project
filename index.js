@@ -7,6 +7,7 @@ const app = express();
 const wrapAsync=require("./utils/wrapAsync.js");
 const ExpressError=require("./utils/ExpressError.js");
 const {listingSchema}=require("./schema.js");
+const {reviewSchema}=require("./schema.js");
 const methodOverride = require('method-override');
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
@@ -31,7 +32,15 @@ const validateListing=(req,res,next)=>{
         next();
     }
 }
-
+const validateReview=(req,res,next)=>{
+    let {error}=reviewSchema.validate(req.body);
+    if(error){
+        const err=error.details.map((el)=>el.message).join(",");
+        throw new ExpressError(400,error);
+    }else{
+        next();
+    }
+}
 app.get("/", (req, res) => {
     console.log("Hello, Home Route");
     res.send("Welcome to Home Page");
@@ -87,7 +96,7 @@ app.delete("/listing/:id", wrapAsync(async (req, res) => {
 
 //review route
 //post route
-app.post("/listing/:id/reviews",async(req,res)=>{
+app.post("/listing/:id/reviews",validateReview,wrapAsync(async(req,res)=>{
     let listing= await Listing.findById(req.params.id);
     let newReview = new Review(req.body.review);
     listing.reviews.push(newReview);
@@ -95,7 +104,7 @@ app.post("/listing/:id/reviews",async(req,res)=>{
     await newReview.save();
     console.log("new review saved");
     res.send("new review saved");
-})
+}));
 
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"page not found"));
