@@ -1,6 +1,8 @@
 const express = require("express");
 const router=express.Router({mergeParams:true})
 const mongoose = require("mongoose");
+const app=express();
+app.use(express.urlencoded({extended:true}));
 
 const Listing = require("../models/listing.js");
 const wrapAsync=require("../utils/wrapAsync.js");
@@ -41,6 +43,7 @@ router.post("/", validateListing,wrapAsync(async (req, res) => {
 // let {title,price,location,country,image}=req.body;
 const newlisting = new Listing(req.body.listing);
 await newlisting.save();
+req.flash("success","listing is created!");
 res.redirect("/listing");
 }));
 
@@ -54,6 +57,7 @@ res.render("listings/edit.ejs", { item });
 router.put("/:id",validateListing, wrapAsync(async (req, res) => {
 let { id } = req.params;
 const item = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+req.flash("success","listing is update");
 res.redirect("/listing");
 
 }));
@@ -62,6 +66,7 @@ res.redirect("/listing");
 router.delete("/:id", wrapAsync(async (req, res) => {
 let { id } = req.params;
 const deleteitem = await Listing.findByIdAndDelete(id);
+req.flash("success","listing is deleted");
 res.redirect("/listing");
 }));
 
