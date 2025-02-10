@@ -13,10 +13,12 @@
                             onerror="this.onerror=null; this.src='https://tse1.mm.bing.net/th?id=OIP.I2tP7f3fn1jxlUePw3vSdAAAAA&pid=Api&P=0&h=220';"
                             alt="Image">
                         <div class="card-body">
+                            <b> owner: <%= item.owner.username %></b>
                             <ul>
                                 <li>&#x20b9;<%= item.price.toLocaleString("en-IN")%>
                                 </li>
                                 <li>
+                                  
                                     <%= item.description%>
                                 </li>
                                 <li>

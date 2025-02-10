@@ -6,6 +6,7 @@ app.use(express.urlencoded({extended:true}));
 const {isLoggedIn}=require("../middleware.js");
 
 const Listing = require("../models/listing.js");
+const user=require("../models/user.js");
 const wrapAsync=require("../utils/wrapAsync.js");
 const ExpressError=require("../utils/ExpressError.js");
 const {listingSchema}=require("../schema.js");
@@ -35,7 +36,8 @@ router.get("/new",isLoggedIn,(req, res) => {
 //show route
 router.get("/:id", wrapAsync(async (req, res) => {
 let { id } = req.params;
-const item = await Listing.findById(id).populate("reviews");
+const item = await Listing.findById(id).populate("reviews").populate("owner");
+console.log(item);
 if(!item){
     req.flash("error","listing is does not exist");
     res.redirect("/listing");
@@ -47,6 +49,7 @@ res.render("listings/show.ejs", { item });
 router.post("/", validateListing,isLoggedIn,wrapAsync(async (req, res) => {
 // let {title,price,location,country,image}=req.body;
 const newlisting = new Listing(req.body.listing);
+newlisting.owner=req.user._id;
 await newlisting.save();
 req.flash("success","listing is created!");
 res.redirect("/listing");
