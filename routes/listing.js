@@ -3,7 +3,7 @@ const router=express.Router({mergeParams:true})
 const mongoose = require("mongoose");
 const app=express();
 app.use(express.urlencoded({extended:true}));
-const {isLoggedIn}=require("../middleware.js");
+const {isLoggedIn,isOwner,validateListing}=require("../middleware.js");
 
 const Listing = require("../models/listing.js");
 const user=require("../models/user.js");
@@ -11,15 +11,6 @@ const wrapAsync=require("../utils/wrapAsync.js");
 const ExpressError=require("../utils/ExpressError.js");
 const {listingSchema}=require("../schema.js");
 
-const validateListing=(req,res,next)=>{
-    let {error}=listingSchema.validate(req.body);
-    if(error){
-        const err=error.details.map((el)=>el.message).join(",");
-        throw new ExpressError(400,error);
-    }else{
-        next();
-    }
-}
 
 //index route
 router.get("/", wrapAsync(async (req, res) => {
@@ -55,7 +46,7 @@ req.flash("success","listing is created!");
 res.redirect("/listing");
 }));
 
-router.get("/:id/edit", wrapAsync(async (req, res) => {
+router.get("/:id/edit", isOwner,wrapAsync(async (req, res) => {
 let { id } = req.params;
 const item = await Listing.findById(id);
 if(!item){
@@ -66,16 +57,16 @@ res.render("listings/edit.ejs", { item });
 }));
 
 //update route
-router.put("/:id",validateListing,isLoggedIn, wrapAsync(async (req, res) => {
+router.put("/:id",validateListing,isLoggedIn,isOwner, wrapAsync(async (req, res) => {
 let { id } = req.params;
 const item = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
 req.flash("success","listing is update");
-res.redirect("/listing");
+res.redirect(`/listing/${id}`);
 
 }));
 
 //delete route
-router.delete("/:id",isLoggedIn, wrapAsync(async (req, res) => {
+router.delete("/:id",isLoggedIn,isOwner, wrapAsync(async (req, res) => {
 let { id } = req.params;
 const deleteitem = await Listing.findByIdAndDelete(id);
 req.flash("success","listing is deleted");
