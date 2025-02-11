@@ -4,54 +4,22 @@ const User=require("../models/user");
 const wrapAsync = require("../utils/wrapAsync");
 const passport=require("passport");
 const { saveRedirectUrl } = require("../middleware");
+const usercontroller=require("../controllers/user");
+
+router.route("/signup")
+    .get(usercontroller.renderSignup)
+    .post(wrapAsync(usercontroller.signup));
 
 
-router.get("/signup",(req,res)=>{
-    res.render("users/signup.ejs");
-});
 
-router.post("/signup",wrapAsync(async(req,res)=>{
-    try{
-        let {username,email,password}=req.body;
-        const newUser=new User({email,username});
-        const registeredUser=await User.register(newUser,password);
-        console.log(registeredUser);
-        req.login(registeredUser,(err)=>{
-            if(err){
-            return next();
-            }
-            req.flash("success","Welcome to Wandarlust!");
-            res.redirect("/listing");
-      });
-       
-    }catch(e){
-        req.flash("error",e.message);
-        res.redirect("/signup");
-    }
-   
-}));
+router.route("/login")
+    .get(usercontroller.renderLogin)
+    .post(saveRedirectUrl,
+        passport.authenticate('local', { failureRedirect: '/login' ,failureFlash:true}),
+       usercontroller.login);
 
-router.get("/login",(req,res)=>{
-    res.render("users/login.ejs")
-});
-
-router.post('/login', saveRedirectUrl,
-    passport.authenticate('local', { failureRedirect: '/login' ,failureFlash:true}),
-    async(req, res) =>{
-        req.flash("success","welcome back to Wonderlust!");
-        let redirectUrl=res.locals.redirectUrl||"/listing";
-        res.redirect(redirectUrl);
-});
-
-router.get("/logout",(req,res)=>{
-    req.logOut((err)=>{
-        if(err){
-         return next(err);
-        }req.flash("success","you are logged out now!");
-        res.redirect("/listing");
-    })
-
-});
+router.route("/logout")
+    .get(usercontroller.logout);
 
 module.exports=router;
 
