@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !="production"){
+require('dotenv').config();
+}
+
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -23,6 +27,7 @@ app.engine("ejs", ejsMate);
 const passport=require("passport");
 const localstrategy=require("passport-local");
 const user=require("./models/user.js");
+
 
 
 

@@ -10,9 +10,8 @@ const listingSchema = new Schema({
     },
     description: String,
     image: {
-        default:"https://pixabay.com/photos/red-plum-republic-of-korea-4625194/",
-        type: String,
-        set: (v) => (v === "" ? "https://pixabay.com/photos/red-plum-republic-of-korea-4625194/" : v),
+       url:String,
+       filename:String,
     },
     price: Number, 
     location: String,

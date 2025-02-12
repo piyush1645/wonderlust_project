@@ -22,9 +22,12 @@ module.exports.showRoute=async (req, res) => {
     };
 
 module.exports.createRoute=async (req, res) => {
+    let url=req.file.path;
+    let filename=req.file.filename;
     // let {title,price,location,country,image}=req.body;
     const newlisting = new Listing(req.body.listing);
     newlisting.owner=req.user._id;
+    newlisting.image={url,filename};
     await newlisting.save();
     req.flash("success","listing is created!");
     res.redirect("/listing");
@@ -43,6 +46,12 @@ module.exports.editRoute=async (req, res) => {
 module.exports.updateRoute=async (req, res) => {
     let { id } = req.params;
     const item = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+    if(typeof req.file!=="undefind"){
+    let url=req.file.path;
+    let filename=req.file.filename;
+    item.image={url,filename};
+    await item.save();
+    }
     req.flash("success","listing is update");
     res.redirect(`/listing/${id}`);
     
