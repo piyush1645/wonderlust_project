@@ -14,6 +14,10 @@
                           </div>
                     </div>
                     <div class="mb-3">
+                        <h6>Original Listing Image</h6>
+                        <img src="<%=item.image.url%>" alt="error" style="height: 250px;width: 270px;">
+                    </div>
+                    <div class="mb-3">
                         <label for="listing[image]" class="form-lable">Upload New Image</label>
                         <input type="file" class="form-control needs-validation" name="listing[image]" value="<%=item.image%>" >
                         <div class="invalid-feedback">
