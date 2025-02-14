@@ -48,8 +48,9 @@ module.exports.editRoute=async (req, res) => {
 module.exports.updateRoute=async (req, res) => {
     let { id } = req.params;
     const item = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
-    if(typeof req.file!=="undefind"){
-    let url=req.file.path;
+
+    if(typeof req.file!=="undefined"){
+        let url = req.file.path;
     let filename=req.file.filename;
     item.image={url,filename};
     await item.save();

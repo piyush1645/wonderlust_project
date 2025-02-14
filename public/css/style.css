@@ -12,8 +12,9 @@
     align-items: center !important;
     justify-content: center !important;
 }
-
-
+.collapse{
+    background-color: white;
+}
 i{
     color: red;
 }
@@ -109,3 +110,12 @@ justify-content: center;
     justify-content:space-between;
     
 } 
+
+/* review */
+.review{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 3%;
+}
