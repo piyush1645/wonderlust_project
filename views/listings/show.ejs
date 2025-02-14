@@ -5,13 +5,18 @@
             <div class="col-10 offset-1">
                 <div class="card">
                     <br>
-                    <div class="col-10 offset-1">
+                    <div class="col-10 offset-1 mt-3 showimg">
+                        <div class="heading">
                         <h3>
                             <%= item.title%>
                         </h3>
-                        <img src="<%=item.image.url%>" class="card-img-top"
+                    </div>
+                        <div class="innerbox">
+                        
+                        <img src="<%=item.image.url%>" 
                             onerror="this.onerror=null; this.src='https://tse1.mm.bing.net/th?id=OIP.I2tP7f3fn1jxlUePw3vSdAAAAA&pid=Api&P=0&h=220';"
                             alt="Image">
+                        </div>
                         <div class="card-body">
                             <b> owner: <%= item.owner.username %></b>
                             <ul>

@@ -1,30 +1,38 @@
 .body-all{
         font-family: "Gupter", serif !important;    
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100vh !important;
 }
-.container,.body-container{
-    flex: 1 !important;
-}
+/* navbar */
 .navbar{
     height: 5rem;
     background-color: white;
 }
+.navfirst{
+    width: 100px;
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+
 i{
     color: red;
 }
-.fa-brands{
-    color: black;
-}
+
 .nav-link{
     font: bold;
     color: black !important;
 }
-.icons,.company-name,.footer-last{
-    width: 100%;
-    text-align: center;
-    justify-content: center ;
+/* footer */
+footer .icons,.footer-last,.company-name{
+        text-align: center !important;
+        justify-content: center !important;
+}
+footer .icons i{
+    color: black !important;
+}
+.footer-contain{
+    align-items: center !important;
+    justify-content: center !important;
 }
 .footer-link:hover{
     text-decoration:underline !important;
@@ -37,11 +45,35 @@ i{
 footer{
     background-color: rgba(57, 57, 56, 0.25);
 }
-.row{
-    margin-left: 0.5rem !important;
-    margin-right: 0.5rem !important;
-}
+
 /* card */
+.allcard{
+    margin: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+.showimg img{
+    border-radius: 1rem !important;
+    /* height: 15rem !important; */
+    width: 100% !important;
+    object-fit: cover !important;
+  
+}
+@media(width>750px){
+    .showimg img{
+    width: 300px !important;
+    height: 300px !important;
+   }
+}
+.heading{
+display: flex;
+justify-content: center;
+}
+.innerbox{
+    display: flex;
+    justify-content: center !important;
+}
 .listing-card{
     border: none !important;
     margin-bottom: 2rem !important;
@@ -76,4 +108,4 @@ footer{
     display: flex;
     justify-content:space-between;
     
-}
+} 
