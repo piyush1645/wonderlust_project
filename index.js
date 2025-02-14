@@ -60,15 +60,15 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.get("/demouser",async(req,res)=>{
-    let fakeUser=new user({
-        email:"student@gmail.com",
-        username:"piyush-mevada",
-    });
+// app.get("/demouser",async(req,res)=>{
+//     let fakeUser=new user({
+//         email:"student@gmail.com",
+//         username:"piyush-mevada",
+//     });
 
-    let registeredUser=await user.register(fakeUser,"helloworld");
-    res.send(registeredUser);
-})
+//     let registeredUser=await user.register(fakeUser,"helloworld");
+//     res.send(registeredUser);
+// })
 
 app.use("/listing",listingRouters);
 app.use("/listing/:id/reviews",reviewRouter);
@@ -84,10 +84,10 @@ let port = 8080;
 
 
 
-app.get("/", (req, res) => {
-    console.log("Hello, Home Route");
-    res.send("Welcome to Home Page");
-});
+// app.get("/", (req, res) => {
+//     console.log("Hello, Home Route");
+//     res.send("Welcome to Home Page");
+// });
 
 
 app.all("*",(req,res,next)=>{
