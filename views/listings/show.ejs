@@ -82,10 +82,10 @@
                     <hr>
 
                     <h4>All Review</h4>
-                <div class="row col-10 offset-1">
+                <div class="review">
                     <%for(review of item.reviews){%>
-                        <div class="card mb-3 ms-5" style="width: 18rem;">
-                            <div class="card-body">
+                        <div class="card mt-3" style="width: 18rem;">
+                            <div class="card-body review-body">
                               <h5 class="card-title"><%=review.author.username%></h5>
                                 <p class="card-text">  <%=review.comment%></p>
                                 <p class="card-text"> <b><%=review.rating%> star!</b></p>

@@ -42,7 +42,69 @@
                         </div>
                         <div class="mb-3 col-md-8">
                             <label for="listing[country]" class="form-lable">Country</label>
-                            <input type="text" name="listing[country]" class="form-control needs-validation" value="<%=item.country%>" required>
+                            <!-- <input type="text" name="listing[country]" class="form-control needs-validation" value="" required> -->
+                            <select class="form-control needs-validation" name="listing[country]" required>
+                                <option value="">--Select a country--</option>
+                                <option value="Afghanistan" <%= item.country == "Afghanistan" ? "selected" : "" %>>Afghanistan</option>
+                                <option value="Albania" <%= item.country == "Albania" ? "selected" : "" %>>Albania</option>
+                                <option value="Algeria" <%= item.country == "Algeria" ? "selected" : "" %>>Algeria</option>
+                                <option value="Andorra" <%= item.country == "Andorra" ? "selected" : "" %>>Andorra</option>
+                                <option value="Angola" <%= item.country == "Angola" ? "selected" : "" %>>Angola</option>
+                                <option value="Argentina" <%= item.country == "Argentina" ? "selected" : "" %>>Argentina</option>
+                                <option value="Armenia" <%= item.country == "Armenia" ? "selected" : "" %>>Armenia</option>
+                                <option value="Australia" <%= item.country == "Australia" ? "selected" : "" %>>Australia</option>
+                                <option value="Austria" <%= item.country == "Austria" ? "selected" : "" %>>Austria</option>
+                                <option value="Azerbaijan" <%= item.country == "Azerbaijan" ? "selected" : "" %>>Azerbaijan</option>
+                                <option value="Bahrain" <%= item.country == "Bahrain" ? "selected" : "" %>>Bahrain</option>
+                                <option value="Bangladesh" <%= item.country == "Bangladesh" ? "selected" : "" %>>Bangladesh</option>
+                                <option value="Belarus" <%= item.country == "Belarus" ? "selected" : "" %>>Belarus</option>
+                                <option value="Belgium" <%= item.country == "Belgium" ? "selected" : "" %>>Belgium</option>
+                                <option value="Belize" <%= item.country == "Belize" ? "selected" : "" %>>Belize</option>
+                                <option value="Benin" <%= item.country == "Benin" ? "selected" : "" %>>Benin</option>
+                                <option value="Bhutan" <%= item.country == "Bhutan" ? "selected" : "" %>>Bhutan</option>
+                                <option value="Bolivia" <%= item.country == "Bolivia" ? "selected" : "" %>>Bolivia</option>
+                                <option value="Brazil" <%= item.country == "Brazil" ? "selected" : "" %>>Brazil</option>
+                                <option value="Bulgaria" <%= item.country == "Bulgaria" ? "selected" : "" %>>Bulgaria</option>
+                                <option value="Canada" <%= item.country == "Canada" ? "selected" : "" %>>Canada</option>
+                                <option value="China" <%= item.country == "China" ? "selected" : "" %>>China</option>
+                                <option value="Colombia" <%= item.country == "Colombia" ? "selected" : "" %>>Colombia</option>
+                                <option value="Croatia" <%= item.country == "Croatia" ? "selected" : "" %>>Croatia</option>
+                                <option value="Cuba" <%= item.country == "Cuba" ? "selected" : "" %>>Cuba</option>
+                                <option value="Czech Republic" <%= item.country == "Czech Republic" ? "selected" : "" %>>Czech Republic</option>
+                                <option value="Denmark" <%= item.country == "Denmark" ? "selected" : "" %>>Denmark</option>
+                                <option value="Egypt" <%= item.country == "Egypt" ? "selected" : "" %>>Egypt</option>
+                                <option value="France" <%= item.country == "France" ? "selected" : "" %>>France</option>
+                                <option value="Germany" <%= item.country == "Germany" ? "selected" : "" %>>Germany</option>
+                                <option value="India" <%= item.country == "India" ? "selected" : "" %>>India</option>
+                                <option value="Indonesia" <%= item.country == "Indonesia" ? "selected" : "" %>>Indonesia</option>
+                                <option value="Italy" <%= item.country == "Italy" ? "selected" : "" %>>Italy</option>
+                                <option value="Japan" <%= item.country == "Japan" ? "selected" : "" %>>Japan</option>
+                                <option value="Malaysia" <%= item.country == "Malaysia" ? "selected" : "" %>>Malaysia</option>
+                                <option value="Mexico" <%= item.country == "Mexico" ? "selected" : "" %>>Mexico</option>
+                                <option value="Netherlands" <%= item.country == "Netherlands" ? "selected" : "" %>>Netherlands</option>
+                                <option value="New Zealand" <%= item.country == "New Zealand" ? "selected" : "" %>>New Zealand</option>
+                                <option value="Nigeria" <%= item.country == "Nigeria" ? "selected" : "" %>>Nigeria</option>
+                                <option value="Pakistan" <%= item.country == "Pakistan" ? "selected" : "" %>>Pakistan</option>
+                                <option value="Philippines" <%= item.country == "Philippines" ? "selected" : "" %>>Philippines</option>
+                                <option value="Poland" <%= item.country == "Poland" ? "selected" : "" %>>Poland</option>
+                                <option value="Portugal" <%= item.country == "Portugal" ? "selected" : "" %>>Portugal</option>
+                                <option value="Qatar" <%= item.country == "Qatar" ? "selected" : "" %>>Qatar</option>
+                                <option value="Russia" <%= item.country == "Russia" ? "selected" : "" %>>Russia</option>
+                                <option value="Saudi Arabia" <%= item.country == "Saudi Arabia" ? "selected" : "" %>>Saudi Arabia</option>
+                                <option value="South Africa" <%= item.country == "South Africa" ? "selected" : "" %>>South Africa</option>
+                                <option value="South Korea" <%= item.country == "South Korea" ? "selected" : "" %>>South Korea</option>
+                                <option value="Spain" <%= item.country == "Spain" ? "selected" : "" %>>Spain</option>
+                                <option value="Sweden" <%= item.country == "Sweden" ? "selected" : "" %>>Sweden</option>
+                                <option value="Switzerland" <%= item.country == "Switzerland" ? "selected" : "" %>>Switzerland</option>
+                                <option value="Thailand" <%= item.country == "Thailand" ? "selected" : "" %>>Thailand</option>
+                                <option value="Turkey" <%= item.country == "Turkey" ? "selected" : "" %>>Turkey</option>
+                                <option value="Ukraine" <%= item.country == "Ukraine" ? "selected" : "" %>>Ukraine</option>
+                                <option value="United Arab Emirates" <%= item.country == "United Arab Emirates" ? "selected" : "" %>>United Arab Emirates</option>
+                                <option value="United Kingdom" <%= item.country == "United Kingdom" ? "selected" : "" %>>United Kingdom</option>
+                                <option value="United States" <%= item.country == "United States" ? "selected" : "" %>>United States</option>
+                                <option value="Vietnam" <%= item.country == "Vietnam" ? "selected" : "" %>>Vietnam</option>
+                            </select>
+                            
                             <div class="invalid-feedback">
                                 Country is required.
                               </div>

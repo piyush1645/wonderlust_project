@@ -11,50 +11,109 @@
                     <label for="list-title" class="form-label">Title</label>
                     <input type="text" name="listing[title]" class="form-control" class="needs-validation"
                         placeholder="enter title" required>
-                        <div class="invalid-feedback">
-                            Titl is required.
-                          </div>
+                    <div class="invalid-feedback">
+                        Titl is required.
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="list-discription" class="form-label">Description</label>
                     <input type="textarea" class="form-control" class="needs-validation" name="listing[description]"
                         placeholder="enter description" required>
-                        <div class="invalid-feedback">
-                            Description is required.
-                          </div>
+                    <div class="invalid-feedback">
+                        Description is required.
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="list-image" class="form-label ">Upload Image </label>
                     <input type="file" class="form-control" name="listing[image]" required>
                     <div class="invalid-feedback">
                         Image is required.
-                      </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-md-4">
                         <label for="list-price" class="form-label ">Price</label>
                         <input type="number" class="form-control needs-validation" name="listing[price]"
                             placeholder="enter price" required>
-                            <div class="invalid-feedback">
-                                Price is required.
-                              </div>
+                        <div class="invalid-feedback">
+                            Price is required.
+                        </div>
                     </div>
                     <div class="mb-3 col-md-8">
                         <label for="list-country" class="form-label">Country</label>
-                        <input type="text" class="form-control needs-validation" name="listing[country]"
-                            placeholder="enter country" required>
-                            <div class="invalid-feedback">
-                                Country name is required.
-                              </div>
+                        <select class="form-control needs-validation" name="listing[country]" required>
+                            <option value="">--Select a country--</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Belize">Belize</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Bhutan">Bhutan</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Canada">Canada</option>
+                            <option value="China">China</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="France">France</option>
+                            <option value="Germany">Germany</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Philippines">Philippines</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="South Korea">South Korea</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="Vietnam">Vietnam</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Country name is required.
+                        </div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="list-location" class="form-label">Location</label>
                     <input type="text" class="form-control needs-validation" name="listing[location]"
                         placeholder="enter location" required>
-                        <div class="invalid-feedback">
-                            Location is required.
-                          </div>
+                    <div class="invalid-feedback">
+                        Location is required.
+                    </div>
                 </div>
                 <button class="btn  mb-3 add-btn">Add</button>
             </div>
