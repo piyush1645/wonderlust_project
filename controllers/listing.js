@@ -66,5 +66,14 @@ module.exports.deleteRoute=async (req, res) => {
     req.flash("success","listing is deleted");
     res.redirect("/listing");
     };
+module.exports.searchRoute=async(req,res)=>{
+    const AllListing = await Listing.find({});
+    let country = req.query.country;
+    if (!country) {
+        return req.flash("No country selected.");
+    }
+    res.render("listings/search", { country,AllListing });
+
+    };
 
     

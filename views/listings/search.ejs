@@ -1,0 +1,20 @@
+<% layout("/layouts/boilarplate")%>
+
+<div class="allcard">
+    <% for (let list of AllListing){ 
+        if(country!=="no" && country==list.country){%>
+        <a href="http://localhost:8080/listing/<%=list.id%>"class="listing-link">
+        <div class="card listing-card" style="width: 18rem;" >
+            <img src="<%=list.image.url%>" class="card-img-top" onerror="this.onerror=null; this.src='https://tse1.mm.bing.net/th?id=OIP.I2tP7f3fn1jxlUePw3vSdAAAAA&pid=Api&P=0&h=220';" alt="Image">
+            <div class="card-img-overlay">$</div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%=list.title%>
+                </h5>
+                <h6 class="card-price">&#x20b9;<%=list.price.toLocaleString("en-IN")%>/Night</h6>
+            </div>
+        </div>
+    </a>
+        <% } }%>
+</div>
+   

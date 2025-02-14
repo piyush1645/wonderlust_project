@@ -25,6 +25,11 @@ router
     .route("/new")
     .get( isLoggedIn, listingcontroller.newRoute);
 
+
+router
+    .route("/search")
+    .get(wrapAsync(listingcontroller.searchRoute));
+
 router
     .route("/:id")
     .get(wrapAsync(listingcontroller.showRoute))
@@ -34,5 +39,8 @@ router
 router
     .route("/:id/edit")
     .get(isOwner, wrapAsync(listingcontroller.editRoute));
+
+
+
 
 module.exports = router;

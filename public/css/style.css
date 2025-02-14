@@ -119,3 +119,9 @@ justify-content: center;
     justify-content: space-between;
     margin: 3%;
 }
+/* search */
+.search-btn{
+    border-radius: 50%;
+    background-color: brown;
+
+}

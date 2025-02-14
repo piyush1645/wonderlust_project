@@ -1,32 +1,102 @@
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-      <div class="container-fluid">
-        <div class="navfirst">
-        <a class="navbar-brand" href="/listing"><i class="fa-sharp-duotone fa-solid fa-place-of-worship"></i></i></a>
-        <a class="nav-link " aria-current="page" href="/listing">Explore</a>
-      </div>
-         <div class="toggler ms-3">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ms-auto">
-            <a class="nav-link active" aria-current="page" href="/listing/new">Add New Listing</a>
-            <li class="nav-item">
-              <%if(!currUser){%>
-              <a class="nav-link active" aria-current="page" href="/signup">Sign Up </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/login">Login</a>
-            </li>
-            <%}%>
-            <%if(currUser){%>
+
+  <div class="container-fluid">
+    <div class="navfirst">
+      <a class="navbar-brand" href="/listing"><i class="fa-sharp-duotone fa-solid fa-place-of-worship"></i></i></a>
+      <a class="nav-link " aria-current="page" href="/listing">Explore</a>
+    </div>
+
+    <div class="toggler ms-3">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <form class="d-flex" role="search" method="GET" action="/listing/search">
+        <select class="form-control me-2" name="country" aria-label="Select Country">
+          <option value="no">Select Country</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="Albania">Albania</option>
+          <option value="Algeria">Algeria</option>
+          <option value="Andorra">Andorra</option>
+          <option value="Angola">Angola</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Armenia">Armenia</option>
+          <option value="Australia">Australia</option>
+          <option value="Austria">Austria</option>
+          <option value="Azerbaijan">Azerbaijan</option>
+          <option value="Bahrain">Bahrain</option>
+          <option value="Bangladesh">Bangladesh</option>
+          <option value="Belarus">Belarus</option>
+          <option value="Belgium">Belgium</option>
+          <option value="Belize">Belize</option>
+          <option value="Benin">Benin</option>
+          <option value="Bhutan">Bhutan</option>
+          <option value="Bolivia">Bolivia</option>
+          <option value="Brazil">Brazil</option>
+          <option value="Bulgaria">Bulgaria</option>
+          <option value="Canada">Canada</option>
+          <option value="China">China</option>
+          <option value="Colombia">Colombia</option>
+          <option value="Croatia">Croatia</option>
+          <option value="Cuba">Cuba</option>
+          <option value="Czech Republic">Czech Republic</option>
+          <option value="Denmark">Denmark</option>
+          <option value="Egypt">Egypt</option>
+          <option value="France">France</option>
+          <option value="Germany">Germany</option>
+          <option value="India">India</option>
+          <option value="Indonesia">Indonesia</option>
+          <option value="Italy">Italy</option>
+          <option value="Japan">Japan</option>
+          <option value="Malaysia">Malaysia</option>
+          <option value="Mexico">Mexico</option>
+          <option value="Netherlands">Netherlands</option>
+          <option value="New Zealand">New Zealand</option>
+          <option value="Nigeria">Nigeria</option>
+          <option value="Pakistan">Pakistan</option>
+          <option value="Philippines">Philippines</option>
+          <option value="Poland">Poland</option>
+          <option value="Portugal">Portugal</option>
+          <option value="Qatar">Qatar</option>
+          <option value="Russia">Russia</option>
+          <option value="Saudi Arabia">Saudi Arabia</option>
+          <option value="South Africa">South Africa</option>
+          <option value="South Korea">South Korea</option>
+          <option value="Spain">Spain</option>
+          <option value="Sweden">Sweden</option>
+          <option value="Switzerland">Switzerland</option>
+          <option value="Thailand">Thailand</option>
+          <option value="Turkey">Turkey</option>
+          <option value="Ukraine">Ukraine</option>
+          <option value="United Arab Emirates">United Arab Emirates</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="United States">United States</option>
+          <option value="Vietnam">Vietnam</option>
+      </select>
+    
+        <button class="btn btn-outline-success"  type="submit">Search</button>
+      </form>
+      <div class="navbar-nav ms-auto">
+        
+        <a class="nav-link active" aria-current="page" href="/listing/new">Add New Listing</a>
+        <li class="nav-item">
+          <%if(!currUser){%>
+            <a class="nav-link active" aria-current="page" href="/signup">Sign Up </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/login">Login</a>
+        </li>
+        <%}%>
+          <%if(currUser){%>
             <li class="nav-item">
               <a class="nav-link" href="/logout">logout</a>
             </li>
             <%}%>
-          </div>
-        </div>
+            
       </div>
+    </div>
+  </div>
 
-  </nav>
+</nav>
