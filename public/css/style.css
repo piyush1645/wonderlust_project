@@ -66,6 +66,9 @@ footer{
     width: 300px !important;
     height: 300px !important;
    }
+   .selectoption{
+    margin-top: 3px !important;
+}
 }
 .heading{
 display: flex;
@@ -125,3 +128,5 @@ justify-content: center;
     background-color: brown;
 
 }
+
+
