@@ -29,17 +29,17 @@ const passport=require("passport");
 const localstrategy=require("passport-local");
 const user=require("./models/user.js");
 
-const store =MongoStore.create({
-    mongoUrl:process.env.MONGOATLAS_DB,
-    crypto:{
-        secret:process.env.SECRET,
-    },
-    touchAfter:24*3600,
-})
+// const store =MongoStore.create({
+//     mongoUrl:process.env.MONGOATLAS_DB,
+//     crypto:{
+//         secret:process.env.SECRET,
+//     },
+//     touchAfter:24*3600,
+// })
 
-store.on("error",()=>{
-    console.log("Error in MONGO SESSION STORE",err);
-});
+// store.on("error",()=>{
+//     console.log("Error in MONGO SESSION STORE",err);
+// });
 const sessionOptions={
     secret:process.env.SECRET,
     resave:false,
@@ -76,8 +76,8 @@ app.use("/",userRouter);
 
 
 async function main() {
-    // await mongoose.connect("mongodb://127.0.0.1:27017/wonderlust");
-    await mongoose.connect(process.env.MONGOATLAS_DB);
+    await mongoose.connect("mongodb://127.0.0.1:27017/wonderlust");
+    // await mongoose.connect(process.env.MONGOATLAS_DB);
     console.log("Connected to MongoDB");
 }
 main().catch(err => console.log(err));

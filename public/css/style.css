@@ -2,10 +2,7 @@
         font-family: "Gupter", serif !important;    
 }
 /* navbar */
-.navbar{
-    height: 5rem;
-    background-color: white;
-}
+
 .navfirst{
     width: 100px;
     display: flex;
@@ -68,7 +65,7 @@ footer{
    }
    .selectoption{
     margin-top: 3px !important;
-}
+    }
 }
 .heading{
 display: flex;
