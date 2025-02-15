@@ -15,7 +15,10 @@
 i{
     color: red;
 }
-
+.navbar{
+    
+    background-color:white !important;
+}
 .nav-link{
     font: bold;
     color: black !important;
@@ -66,6 +69,7 @@ footer{
    .selectoption{
     margin-top: 3px !important;
     }
+    
 }
 .heading{
 display: flex;
